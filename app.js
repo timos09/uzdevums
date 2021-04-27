@@ -1,9 +1,9 @@
 const POP_UP = document.getElementById('popUp');
-let pirkumas = [];
+let pirkums = [];
 
 window.addEventListener('load', () => {
-    pirkumas = JSON.parse(localStorage.getItem("pirkumas") || "[]");
-    console.log(pirkumas)
+    pirkums = JSON.parse(localStorage.getItem("pirkums") || "[]");
+    console.log(pirkums)
     render();
 });
 
@@ -20,7 +20,7 @@ document.getElementById('pievienotPirkumu').addEventListener('click', () => {
     pirkums.value = "";
     cena.value = "";
 
-    pirkumas.push(pirkuma);
+    pirkums.push(pirkuma);
 
     render();
 })
@@ -29,15 +29,15 @@ function render() {
     let veikals = document.getElementById('veikals');
     veikals.innerHTML = "";
 
-    for(let i = 0; i < pirkumas.length; i++) {
+    for(let i = 0; i < pirkums.length; i++) {
         let pirkuma = `
         <div class="pirkuma">
-            <h3>Virsraksts: ${pirkumas[i].virsraksts}</h3>
-            <h4>Autors: ${pirkumas[i].autors}</h4>
+            <h3>Virsraksts: ${pirkums[i].virsraksts}</h3>
+            <h4>Autors: ${pirkums[i].autors}</h4>
         </div>`;
 
-        biblioteka.innerHTML += pirkuma;
+        biblioteka.innerHTML += pirkums;
     }
 
-    localStorage.setItem("pirkumas", JSON.stringify(pirkumas))
+    localStorage.setItem("pirkumas", JSON.stringify(pirkums))
 }
