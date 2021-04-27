@@ -15,29 +15,29 @@ document.getElementById('jaunaPirkuma').addEventListener('click', () => {
 document.getElementById('pievienotPirkumu').addEventListener('click', () => {
     POP_UP.style.display = 'none';
 
-    let pirkuma = {virsraksts: virsraksts.value, autors: autors.value};
+    let pirkuma = {pirkums: pirkums.value, cena: autors.value};
 
-    virsraksts.value = "";
-    autors.value = "";
+    pirkums.value = "";
+    cena.value = "";
 
-    gramatas.push(gramata);
+    pirkumas.push(pirkuma);
 
     render();
 })
 
 function render() {
-    let biblioteka = document.getElementById('pirkumas');
-    biblioteka.innerHTML = "ass";
+    let veikals = document.getElementById('veikals');
+    veikals.innerHTML = "";
 
-    for(let i = 0; i < gramatas.length; i++) {
-        let gramata = `
-        <div class="veikals">
-            <h3>Virsraksts: ${gramatas[i].virsraksts}</h3>
-            <h4>Autors: ${gramatas[i].autors}</h4>
+    for(let i = 0; i < pirkumas.length; i++) {
+        let pirkuma = `
+        <div class="pirkuma">
+            <h3>Virsraksts: ${pirkumas[i].virsraksts}</h3>
+            <h4>Autors: ${pirkumas[i].autors}</h4>
         </div>`;
 
-        biblioteka.innerHTML += gramata;
+        biblioteka.innerHTML += pirkuma;
     }
 
-    localStorage.setItem("gramatas", JSON.stringify(gramatas))
+    localStorage.setItem("pirkumas", JSON.stringify(pirkumas))
 }
